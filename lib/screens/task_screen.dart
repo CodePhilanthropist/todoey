@@ -71,7 +71,10 @@ class TaskScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+              context: context, builder: (context) => Container());
+        },
         child: Icon(
           Icons.add,
         ),
