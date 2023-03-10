@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import '../models/task.dart/';
 
 class AddTaskScreen extends StatelessWidget {
-  final clearTextField = TextEditingController();
   late String textTask;
+  final Function addTaskToScreen;
 
-  void addNewTask(value) {
-    tasks.add(Task(name: value, isDone: false));
-    clearTextField.clear();
-  }
+  AddTaskScreen({required this.addTaskToScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +42,9 @@ class AddTaskScreen extends StatelessWidget {
               style: TextButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
               ),
-              onPressed: () {},
+              onPressed: () {
+                addTaskToScreen(textTask);
+              },
               child: const Text(
                 "Add",
                 style: TextStyle(fontSize: 18, color: Colors.white),
