@@ -30,19 +30,3 @@ class _TasksListState extends State<TasksList> {
     );
   }
 }
-
-// ListView(
-//       children: [
-//         TaskTile(
-//           taskTitle: tasks[0].name,
-//           isChecked: tasks[0].isDone,
-//           onChange: () {
-//             setState(() {
-//               if (tasks[0].isDone) {
-//                 tasks[0].isDone = false;
-//               }
-//             });
-//           },
-//         ),
-//       ],
-//     );
