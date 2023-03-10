@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import '../models/task.dart/';
 
 class AddTaskScreen extends StatelessWidget {
-  const AddTaskScreen({super.key});
+  final clearTextField = TextEditingController();
+  late String textTask;
+
+  void addNewTask(value) {
+    tasks.add(Task(name: value, isDone: false));
+    clearTextField.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xff757575),
+      color: const Color(0xff757575),
       child: Container(
-        padding: EdgeInsets.all(20),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
@@ -19,7 +26,7 @@ class AddTaskScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
+            const Text(
               "Add Task",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -31,13 +38,16 @@ class AddTaskScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (value) {
+                textTask = value;
+              },
             ),
             TextButton(
               style: TextButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
               ),
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Add",
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),

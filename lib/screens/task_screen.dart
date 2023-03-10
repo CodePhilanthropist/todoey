@@ -2,9 +2,21 @@ import 'package:flutter/material.dart';
 import '../widgets/task_list.dart';
 import '../widgets/task_tile.dart';
 import '../screens/add_task_screen.dart';
+import '../models/task.dart';
 
-class TaskScreen extends StatelessWidget {
+class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
+
+  @override
+  State<TaskScreen> createState() => _TaskScreenState();
+}
+
+class _TaskScreenState extends State<TaskScreen> {
+  List<Task> tasks = [
+    Task(name: "Warpit", isDone: false),
+    Task(name: "Tolinjet", isDone: true),
+    Task(name: "Hehehe", isDone: true),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +35,7 @@ class TaskScreen extends StatelessWidget {
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   CircleAvatar(
                     backgroundColor: Colors.white,
                     radius: 30,
@@ -56,9 +68,9 @@ class TaskScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: 300,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20),
@@ -85,10 +97,10 @@ class TaskScreen extends StatelessWidget {
             isScrollControlled: true,
           );
         },
-        child: Icon(
+        backgroundColor: Colors.lightBlueAccent,
+        child: const Icon(
           Icons.add,
         ),
-        backgroundColor: Colors.lightBlueAccent,
       ),
     );
   }
