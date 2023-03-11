@@ -4,12 +4,7 @@ import '../models/task.dart';
 import 'task_tile.dart';
 import 'package:provider/provider.dart';
 
-class TasksList extends StatefulWidget {
-  @override
-  State<TasksList> createState() => _TasksListState();
-}
-
-class _TasksListState extends State<TasksList> {
+class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
