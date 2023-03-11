@@ -1,3 +1,7 @@
+// ignore_for_file: prefer_final_fields
+
+import 'dart:collection';
+
 import 'package:flutter/foundation.dart';
 import 'task.dart';
 
@@ -14,7 +18,7 @@ class TaskData extends ChangeNotifier {
   ];
 
   int get taskCount => _tasks.length;
-  List<Task> get tasks => _tasks;
+  UnmodifiableListView<Task> get tasks => UnmodifiableListView(_tasks);
 
   void addTask(String taskTitle, bool taskStatus) {
     _tasks.add(Task(name: taskTitle, isDone: taskStatus));
