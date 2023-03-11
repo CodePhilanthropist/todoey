@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'task.dart';
 
 class TaskData extends ChangeNotifier {
-  List<Task> tasks = [
+  List<Task> _tasks = [
     Task(name: "Learn Dart programming language", isDone: true),
     Task(name: "Understand Flutter architecture and widgets", isDone: true),
     Task(name: "Build projects", isDone: false),
@@ -13,10 +13,11 @@ class TaskData extends ChangeNotifier {
     Task(name: "Publish apps", isDone: false),
   ];
 
-  int get taskCount => tasks.length;
+  int get taskCount => _tasks.length;
+  List<Task> get tasks => _tasks;
 
   void addTask(String taskTitle, bool taskStatus) {
-    tasks.add(Task(name: taskTitle, isDone: taskStatus));
+    _tasks.add(Task(name: taskTitle, isDone: taskStatus));
     notifyListeners();
   }
 }
