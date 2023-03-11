@@ -4,9 +4,6 @@ import 'package:todoey/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
   late String textTask;
-  final Function addTaskToScreen;
-
-  AddTaskScreen({required this.addTaskToScreen});
 
   @override
   Widget build(BuildContext context) {
