@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import '../models/task.dart';
+import '../models/task_data.dart';
 import '../widgets/task_list.dart';
 import '../screens/add_task_screen.dart';
-import '../models/task.dart';
+import 'package:provider/provider.dart';
 
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
@@ -50,7 +52,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     ),
                   ),
                   Text(
-                    "${tasks.length} Tasks",
+                    "${Provider.of<TaskData>(context).tasks.length} Tasks",
                     style: const TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -70,7 +72,7 @@ class _TaskScreenState extends State<TaskScreen> {
                     topRight: Radius.circular(30),
                   ),
                 ),
-                child: TasksList(tasks: tasks),
+                child: TasksList(),
               ),
             )
           ],
@@ -86,9 +88,11 @@ class _TaskScreenState extends State<TaskScreen> {
                     bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AddTaskScreen(
                   addTaskToScreen: (value) {
-                    setState(() {
-                      tasks.add(Task(name: value, isDone: false));
-                    });
+                    // setState(() {
+                    //   Provider.of(context)
+                    // .tasks
+                    // .add(Task(name: value, isDone: false));
+                    // });
                     Navigator.pop(context);
                   },
                 ),
