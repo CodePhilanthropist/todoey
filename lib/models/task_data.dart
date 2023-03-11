@@ -12,4 +12,11 @@ class TaskData extends ChangeNotifier {
     Task(name: "Participate in the Flutter community", isDone: false),
     Task(name: "Publish apps", isDone: false),
   ];
+
+  int get taskCount => tasks.length;
+
+  void addTask(String taskTitle, bool taskStatus) {
+    tasks.add(Task(name: taskTitle, isDone: taskStatus));
+    notifyListeners();
+  }
 }

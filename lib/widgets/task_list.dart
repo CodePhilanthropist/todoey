@@ -10,7 +10,7 @@ class TasksList extends StatelessWidget {
     return Consumer<TaskData>(
       builder: (BuildContext context, taskData, Widget? child) {
         return ListView.builder(
-          itemCount: taskData.tasks.length,
+          itemCount: taskData.taskCount,
           itemBuilder: (BuildContext context, int index) => TaskTile(
             isChecked: taskData.tasks[index].isDone,
             taskTitle: taskData.tasks[index].name,
